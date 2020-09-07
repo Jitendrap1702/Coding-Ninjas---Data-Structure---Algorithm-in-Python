@@ -1,1 +1,1 @@
-# Coding-Ninjas---Data-Structure---Algorithm-in-Python
+# Coding-Ninjas---Data-Structure-and-Algorithm-in-Python
