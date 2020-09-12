@@ -1,0 +1,46 @@
+# time complexity of this code is O(n) which is good
+
+class Node:
+
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+
+def reverseRecursive(head):
+    if head is None  or head.next is None:
+        return head,head  #because smallTail and smallHead both are is equal to head
+    smallHead,smallTail=reverseRecursive(head.next)
+    smallTail.next=head
+    head.next=None
+    return smallHead,head #because smallTail is equal to none
+
+def printLL(head):
+    while head is not None:
+        print(str(head.data) + '_>' ,end='')
+        head=head.next
+    print('None')
+    return
+
+def takeInput():
+
+    linkedList=[int(ele) for ele in input().split()]
+    
+    head=None
+    tail=None
+    for currData in linkedList:
+        if currData==-1:
+            break
+        newNode=Node(currData)
+        if head is None:
+            head=newNode
+            tail=newNode
+        else:
+            tail.next=newNode
+            tail=newNode
+    return head
+
+
+head=takeInput()
+head,tail=reverseRecursive(head)
+printLL(head)
