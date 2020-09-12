@@ -1,0 +1,38 @@
+from sys import stdin
+
+#Following is the Node class already written for the Linked List
+class Node :
+    def __init__(self, data) :
+        self.data = data
+        self.next = None
+
+def takeInput() :
+    linkedList=[int(ele) for ele in input().split()]
+    head=None
+    tail=None
+    for data in linkedList:
+        if data==-1:
+            break
+        newNode=Node(data)
+        if head is None:
+            head=newNode
+            tail=newNode
+        else:
+            tail.next=newNode
+            tail=newNode
+    return head
+
+def length(head):
+    count=0
+    if head is None:
+        return -1
+    while head is not None:
+        count+=1
+        head=head.next
+    return count
+
+    
+for _ in range(int(input())):
+    head=takeInput()
+    print(length(head))
+
